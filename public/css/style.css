@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0px;
+}
+h1,h5 {
+    text-align: center;
+    color: #333;
+}
+form {
+    width: 65%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #555;
+}
+ul {
+    width: 70%;
+    margin: 20px auto 0;
+    padding: 0;
+    list-style: none;
+}
+ul li {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+ul li button {
+    float: right;
+
+    border: none;
+    border-radius: 5px;
+    background-color: #e4e4e4;
+    color: #fff;
+    cursor: pointer;
+}
+ul li button:hover {
+    background-color: #92bb00;
+}
+.add {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+}
+.inside {
+    background-color: #e4e4e4;
+    color: #fff;
+    cursor: pointer;
+    margin-top: -5px;
+}
+#todo{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.innerdiv{
+    width: 40%;
+    height: 30%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+}

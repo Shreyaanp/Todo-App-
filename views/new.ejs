@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO app</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>TODO app</h1>
+    <h5>Welcome <%=username%>...</h5>
+    <form action="/add" method="POST">
+        <textarea name="todo" id="todo" placeholder="todo"></textarea>
+        <input type="hidden" name="_method" value="PUT">
+        <button class="add" type="submit">Add</button>
+    </form>
+    <ul id="lists">
+        <% for (let i = 0; i < doc.todoindex; i++) { %>
+            <li>&nbsp;<%= doc[i] %><button class="inside"> <img src="/images/trash.png" height="30px" width="30px"></button></li>
+        <% } %>
+    </ul>
+    <script>
+      const doc = doc;
+      console.log(doc);
+    </script>
+</body>
+</html>

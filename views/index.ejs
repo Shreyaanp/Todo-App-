@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO app</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>TODO app</h1>
+    <h5 onclick="lala()">Welcome <%=username%>...</h5>
+    <form action="/add" method="POST">
+        <textarea name="todo" id="todo" placeholder="todo"></textarea>
+        <input type="hidden" name="_method" value="PUT">
+        <button class="add" type="submit">Add</button>
+    </form>
+    <ul>
+      <% for (let i = 0; i <= todoindex; i++) { %>
+        <% if (send[i] != null) { %>
+          <li>&nbsp;<%= send[i] %><button class="inside" data-index="<%= i %>"><img src="/images/trash.png" height="30px" width="30px" value></button></li>
+        <% } %>
+      <% } %>
+    </ul>
+
+    <script>
+      // Add event listener to all buttons with class "inside"
+      const buttons = document.querySelectorAll('.inside');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Get the index of the clicked button
+          const index = button.data-index.value;
+
+          // Send a DELETE request to the server using fetch()
+          fetch(`/delete/${index}`, {
+            method: 'POST'
+          })
+          .then(response => {
+            // Handle the response from the server
+            if (response.ok) {
+              console.log('Item deleted successfully');
+              // remove the element from the DOM
+              // button.parentElement.remove();
+
+            } else {
+              console.log('Error deleting item');
+            }
+          })
+          .catch(error => {
+            console.log(`Error: ${error}`);
+          });
+        });
+      });
+    </script>
+
+    <!-- <script>
+      const eventSource = new EventSource('/sse');
+
+      eventSource.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        if (data.success) {
+          // add your JavaScript code here to create div elements
+          console.log("Data added successfully!");
+        } else {
+          console.log("Failed to add data!");
+        }
+      };
+
+      function submitForm() {
+        const formData = new FormData(document.querySelector('form'));
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/add');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(formData);
+      }
+    </script> -->
+
+</body>
+</html>
